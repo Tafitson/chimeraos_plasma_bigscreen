@@ -14,10 +14,12 @@ export KERNEL_PACKAGE="linux-chimeraos"
 export KERNEL_PACKAGE_ORIGIN="local"
 
 export PACKAGES="\
+	ark \
 	accountsservice \
 	alsa-firmware \
 	alsa-utils \
 	amd-ucode \
+	aura-browser \
 	bluez \
 	bluez-hid2hci \
 	bluez-plugins \
@@ -27,12 +29,16 @@ export PACKAGES="\
 	diffutils \
 	dkms \
 	dmidecode \
+	dolphin \
+	dolphin-plugins \
 	dosbox \
 	eog \
 	epiphany \
 	ethtool \
 	evtest \
+	falkon \
 	ffmpeg \
+	ffmpegthumbs \
 	file-roller \
 	firejail \
 	flatpak \
@@ -41,14 +47,6 @@ export PACKAGES="\
 	fuse2 \
 	gamemode \
 	git \
-	gnome-console \
-	gnome-control-center \
-	gnome-disk-utility \
-	gnome-keyring \
-	gnome-session \
-	gnome-shell \
-	gnome-software \
-	gnome-text-editor \
 	gst-plugin-pipewire \
 	haveged \
 	htop \
@@ -56,6 +54,9 @@ export PACKAGES="\
 	intel-media-driver \
 	intel-ucode \
 	intel-undervolt \
+	kdeconnect \
+	kdialog \
+	konsole \
 	lib32-curl \
 	lib32-fontconfig \
 	lib32-freetype2 \
@@ -112,6 +113,10 @@ export PACKAGES="\
 	nss-mdns \
 	openal \
 	openssh \
+	plank-player \
+	plasma \
+	plasma-bigscreen \
+	plasma-wayland-session \
 	podman \
 	pulsemixer \
 	python \
@@ -137,7 +142,7 @@ export PACKAGES="\
 	wireplumber \
 	wqy-zenhei \
 	xdg-desktop-portal \
-	xdg-desktop-portal-gnome \
+	xdg-desktop-portal-kde \
 	xdg-desktop-portal-wlr \
 	xdg-user-dirs-gtk \
 	xf86-video-amdgpu \
@@ -268,13 +273,6 @@ postinstallhook() {
 	find /usr/share/applications/* | \
 	grep -v org.chimeraos.Gamescope.desktop | \
 	grep -v org.chimeraos.app.desktop | \
-	grep -v org.gnome.Console.desktop | \
-	grep -v org.gnome.DiskUtility.desktop | \
-	grep -v org.gnome.FileRoller.desktop | \
-	grep -v org.gnome.Nautilus.desktop | \
-	grep -v org.gnome.Settings.desktop | \
-	grep -v org.gnome.Software.desktop | \
-	grep -v org.gnome.TextEditor.desktop | \
 	grep -v steam.desktop | \
 	xargs -I {} sh -c "echo NoDisplay=true >> {}"
 
